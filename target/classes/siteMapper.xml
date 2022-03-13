@@ -8,7 +8,7 @@
         update website
         <set>
             <if test="site.name!=null">
-                ,name=#{site.name}
+                name=#{site.name}
             </if>
             <if test="site.url!=null">
                 ,url=#{site.url}
@@ -46,4 +46,28 @@
         </set>
         where id=#{id}
     </update>
+    <select id="select" resultType="t1.Site" parameterType="site">
+        select *
+        from website
+        <where>
+            <if test="site.id!=null">
+                and id=#{site.id}
+            </if>
+            <if test="site.name!=null">
+                and name=#{site.name}
+            </if>
+            <if test="site.url!=null">
+                and url=#{site.url}
+            </if>
+            <if test="site.age!=null">
+                and age=#{site.age}
+            </if>
+            <if test="site.country!=null">
+                and country=#{site.country}
+            </if>
+            <if test="site.createTime!=null">
+                and createTime=#{site.createTime}
+            </if>
+        </where>
+    </select>
 </mapper>

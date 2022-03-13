@@ -3,6 +3,7 @@ package t1;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Project name(项目名称)：MyBatis_if
@@ -23,4 +24,6 @@ public interface SiteMapper
 
     public int updateByParam(@Param("id") Integer id, @Param("name") String name, @Param("url") String url,
                              @Param("age") Integer age, @Param("country") String country, @Param("createTime") Date createTime);
+
+    public List<Site> select(@Param("site") Site site);
 }
