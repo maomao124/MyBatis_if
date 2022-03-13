@@ -97,4 +97,27 @@ class SiteMapperTest
         //sqlSession.commit();
         sqlSession.close();
     }
+
+    @Test
+    void selectByParam() throws IOException
+    {
+        //读取配置文件mybatis-config.xml
+        InputStream config = Resources.getResourceAsStream("mybatis-config.xml");
+        //根据配置文件构建SqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(config);
+        //通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+//        Site site = new Site();
+//        //site.setId(7);
+//        //site.setAge(13);
+//        site.setCountry("CN");
+
+        SiteMapper siteMapper = sqlSession.getMapper(SiteMapper.class);
+        List<Site> list = siteMapper.selectByParam(3,null,null,null,null,null);
+        System.out.println(list);
+
+        //sqlSession.commit();
+        sqlSession.close();
+    }
 }

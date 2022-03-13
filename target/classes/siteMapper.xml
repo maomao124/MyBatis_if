@@ -25,6 +25,9 @@
         </set>
         where id=#{site.id}
     </update>
+
+
+
     <update id="updateByParam">
         update website
         <set>
@@ -46,6 +49,9 @@
         </set>
         where id=#{id}
     </update>
+
+
+
     <select id="select" resultType="t1.Site" parameterType="site">
         select *
         from website
@@ -67,6 +73,33 @@
             </if>
             <if test="site.createTime!=null">
                 and createTime=#{site.createTime}
+            </if>
+        </where>
+    </select>
+
+
+
+    <select id="selectByParam" resultType="t1.Site">
+        select *
+        from website
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="url!=null">
+                and url=#{url}
+            </if>
+            <if test="age!=null">
+                and age=#{age}
+            </if>
+            <if test="country!=null">
+                and country=#{country}
+            </if>
+            <if test="createTime!=null">
+                and createTime=#{createTime}
             </if>
         </where>
     </select>
