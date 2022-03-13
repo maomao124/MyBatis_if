@@ -114,7 +114,7 @@ class SiteMapperTest
 //        site.setCountry("CN");
 
         SiteMapper siteMapper = sqlSession.getMapper(SiteMapper.class);
-        List<Site> list = siteMapper.selectByParam(3,null,null,null,null,null);
+        List<Site> list = siteMapper.selectByParam(null,null,null,12,null,null);
         System.out.println(list);
 
         //sqlSession.commit();
